@@ -373,15 +373,12 @@
   <h1>{{ title }}</h1>
 
   <!-- {{ gplonfire ? "on fire" : "chill" | uppercase }} -->
-
-  <input #searchTermReference placeholder="Search..." (change)="onChange($event)"/>
-
-  <button (click)="onClick(searchTermReference.value)">Search</button>
-
   <!-- <span *ngIf="this.gplonfire">{{"on fire" | uppercase}}</span> -->
 
+  <app-search-box (searchFired)="doSearch($event)"></app-search-box>
+
   <ul>
-    <li *ngFor="let book of books | searchFilter: SearchTerm">
+    <li *ngFor="let book of books | searchFilter: searchTitle">
       {{book.originalTitle}}
       <img [src]="book.smallImageUrl" [alt]="book.originalTitle"/>
     </li>

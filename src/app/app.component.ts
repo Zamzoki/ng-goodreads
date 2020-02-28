@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Book } from './models/Book';
+import { Book } from './shared/Book.model';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { Book } from './models/Book';
 export class AppComponent {
   title = 'ng-goodreads';
   gplonfire: boolean = false;
-  SearchTerm: string = '';
+  searchTitle: string = '';
   books : Book[] = [
     {
       "id": "9780439023480",
@@ -1608,12 +1608,7 @@ export class AppComponent {
     }
   ];
 
-  onChange = event => {
-    console.log(event.target.value);
-  }
-
-  onClick = searchTerm => {
-    this.gplonfire = !this.gplonfire;
-    this.SearchTerm = searchTerm;
+  doSearch = (event: { searchTerm: string }) : void => {
+    this.searchTitle = event.searchTerm;
   }
 }

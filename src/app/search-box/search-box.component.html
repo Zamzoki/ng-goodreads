@@ -1,0 +1,14 @@
+
+<div class="search-box">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Search book by title</mat-label>
+    <input matInput value = "" [placeholder]="title" (input)="onChange($event.target.value)"/>
+  </mat-form-field>
+  <button
+      mat-raised-button
+      color="primary"
+      class="submit-btn"
+      (click)="onSearch()"
+    >Search</button>
+</div>
+
