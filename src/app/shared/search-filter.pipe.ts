@@ -25,7 +25,6 @@ export class SearchFilterPipe implements PipeTransform {
         this.filteredBooks.push(b);
       }
     })
-
     return this.filteredBooks;
   }
 
